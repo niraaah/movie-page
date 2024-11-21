@@ -20,23 +20,51 @@ nav a {
 }
 
 .movie-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  gap: 16px; /* Adds spacing between items */
+  padding: 10px;
+  scrollbar-width: thin; /* For modern browsers */
+  scrollbar-color: #888 transparent; /* Customize scrollbar color */
+}
+
+.movie-grid::-webkit-scrollbar {
+  height: 8px; /* Height for the horizontal scrollbar */
+}
+
+.movie-grid::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar thumb color */
+  border-radius: 4px;
+}
+
+.movie-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
 }
 
 .movie-card {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  overflow: hidden;
-  text-align: center;
+  width: 200px;
+  cursor: pointer;
 }
 
 .movie-card img {
   width: 100%;
+  border-radius: 10px;
 }
+
+@media (max-width: 600px) {
+  .movie-card {
+    width: 150px;
+  }
+}
+
 
 button {
   background-color: #007bff;
@@ -49,4 +77,20 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+.movie-details {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.movie-details h3 {
+  margin: 0 0 10px;
+}
+
+.movie-details p {
+  margin: 0;
+  color: #333;
 }
